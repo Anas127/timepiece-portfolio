@@ -1,21 +1,26 @@
+// app/layout.tsx
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Playfair_Display, Montserrat } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "./context/CartContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// 1. The "Luxury" Serif Font
+const playfair = Playfair_Display({ 
   subsets: ["latin"],
+  variable: "--font-serif", 
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// 2. The "Technical" Swiss Sans Font
+const montserrat = Montserrat({
   subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "TIMEPIECE",
-  description: "Luxury Watch Store",
+  title: "TIMEPIECE | Master Chronometers",
+  description: "Swiss Engineering. Monochrome Aesthetics.",
 };
 
 export default function RootLayout({
@@ -24,14 +29,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className={`${playfair.variable} ${montserrat.variable}`}>
+      <body className="antialiased bg-black text-white font-sans selection:bg-white selection:text-black">
         <CartProvider>
           {children}
         </CartProvider>
-        
       </body>
     </html>
   );
