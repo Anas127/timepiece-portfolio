@@ -9,51 +9,77 @@ const watches = [
     name: "Royal Oak Perpetual",
     brand: "Audemars Piguet",
     price: 145000,
-    // Using duplicates for now to simulate a gallery. 
-    // Replace these with real alternative angles when you have them.
-    images: ["./images/royal-oak/main_royal_oak.jpg", "./images/royal-oak/oak-img2.jpg", "./images/royal-oak/oak-img3.jpg", "./images/royal-oak/oak-img4.jpg"], 
-    description: "An icon of steel and mechanics. The Royal Oak Perpetual Calendar features the legendary Grande Tapisserie dial and a moon phase so precise it requires correction only once every 125 years."
+    // Note: Converted './' to '/' for Next.js public folder compatibility
+    images: [
+      "/images/royal-oak/main_royal_oak.jpg",
+      "/images/royal-oak/royal-img2.jpg",
+      "/images/royal-oak/oak-img3.jpg",
+      "/images/royal-oak/oak-img4.jpg",
+    ],
+    description:
+      "An icon of steel and mechanics. The Royal Oak Perpetual Calendar features the legendary Grande Tapisserie dial and a moon phase so precise it requires correction only once every 125 years.",
   },
   {
     id: 2,
     name: "Nautilus Travel Time",
     brand: "Patek Philippe",
     price: 115000,
-    images: ["./images/nautilus/main_nautilus.jpg", "./images/nautilus/nautilus-img2.jpg", "./images/nautilus/nautilus-img3.jpg"],
-    description: "The perfect companion for the global elite. With its dual time zone mechanism and distinct porthole construction, the Nautilus represents the pinnacle of sporty elegance."
+    images: [
+      "/images/nautilus_philippe/main_nautilus.jpg",
+      "/images/nautilus_philippe/nautilus-img2.jpg",
+      "/images/nautilus_philippe/nautilus-img3.jpg",
+    ],
+    description:
+      "The perfect companion for the global elite. With its dual time zone mechanism and distinct porthole construction, the Nautilus represents the pinnacle of sporty elegance.",
+      sketchfabId: "f3f0fd3e237b40168784433d1f23ac06",
   },
   {
     id: 3,
     name: "Daytona Platinum",
     brand: "Rolex",
     price: 95000,
-    images: ["./images/daytona/main_daytona.jpg", "./images/daytona/daytona-img2.jpg", "./images/daytona/daytona-img3.jpg", "./images/daytona/daytona-img4.jpg"],
-    description: "The ultimate trophy. Forged in 950 platinum with an ice-blue dial, this Cosmograph Daytona is designed for those with a passion for driving and speed."
+    images: [
+      "/images/rolex_daytona/main_daytona.jpg",
+      "/images/rolex_daytona/daytona-img2.jpg",
+      "/images/rolex_daytona/daytona-img3.jpg",
+      "/images/rolex_daytona/daytona-img4.jpg",
+    ],
+    description:
+      "The ultimate trophy. Forged in 950 platinum with an ice-blue dial, this Cosmograph Daytona is designed for those with a passion for driving and speed.",
+    // I added this back so your 3D viewer still works for this watch
+    sketchfabId: "f8c5db458cf04374822c4a1a8f319aeb",
   },
   {
     id: 4,
     name: "Overseas Tourbillon",
     brand: "Vacheron Constantin",
     price: 129000,
-    images: ["./images/overseas/main_overseas.jpg", "./images/overseas/overseas-img2.jpg"], 
-    description: "A tribute to the spirit of travel. This masterpiece houses an ultra-thin tourbillon movement, visible through the open-worked dial, encased in grade 5 titanium."
+    images: [
+      "/images/overseas-tourbillon/tourbillon-img2.jpg",
+      "/images/overseas-tourbillon/main_tourbillon.jpg",
+      "/images/overseas-tourbillon/tourbillon-img3.jpg",
+    ],
+    description:
+      "A tribute to the spirit of travel. This masterpiece houses an ultra-thin tourbillon movement, visible through the open-worked dial, encased in grade 5 titanium.",
   },
   {
     id: 5,
     name: "Zeitwerk Date",
     brand: "A. Lange & Söhne",
     price: 98000,
-    images: ["/watch5.png", "/watch5.png"],
-    description: "German engineering at its finest. The Zeitwerk is the first mechanical wristwatch to display time digitally with jumping numerals, balancing clarity with extreme complexity."
+    images: ["/images/zeitwerk_date/zeitwerk_main.jpg", "/images/zeitwerk_date/zeitwerk_img2.jpg", "/images/zeitwerk_date/zeitwerk_img3.jpg"],
+    description:
+      "German engineering at its finest. The Zeitwerk is the first mechanical wristwatch to display time digitally with jumping numerals, balancing clarity with extreme complexity.",
   },
   {
     id: 6,
     name: "Day-Date 40",
     brand: "Rolex",
     price: 45000,
-    images: ["/watch6.png", "/watch6.png"],
-    description: "The 'Presidents' watch.' Available only in precious metals, the Day-Date was the first watch to spell out the day of the week in full, becoming a universal symbol of prestige."
-  }
+    images: ["/images/day_date40/date_main.jpg", "/images/day_date40/date_img2.jpg", "/images/day_date40/date_img3.jpg"],
+    description:
+      "The 'Presidents' watch.' Available only in precious metals, the Day-Date was the first watch to spell out the day of the week in full, becoming a universal symbol of prestige.",
+  },
 ];
 
 export default function Home() {
