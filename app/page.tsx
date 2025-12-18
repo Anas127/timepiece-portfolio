@@ -90,7 +90,8 @@ export default function Home() {
       <Navbar />
 
       {/* 1. HERO SECTION */}
-      <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+      {/* Changed h-screen to h-[100dvh] for better mobile support */}
+      <section className="relative h-[100dvh] w-full flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0 bg-black">
           <video 
             autoPlay 
@@ -99,21 +100,21 @@ export default function Home() {
             playsInline 
             className="w-full h-full object-cover opacity-50 grayscale pointer-events-none" 
           >
-            {/* Make sure this path is correct in your public folder */}
-            <source src="./videos/hero_video.mp4" type="video/mp4" />
+            <source src="/videos/hero_video.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-t from-luxury-black via-transparent to-black/30" />
         </div>
 
         <div className="relative z-10 text-center max-w-5xl px-6 mt-20">
-          <p className="text-xs md:text-sm tracking-[0.4em] uppercase text-gray-300 mb-6 font-medium animate-fade-in">
+          <p className="text-[10px] md:text-sm tracking-[0.4em] uppercase text-gray-300 mb-6 font-medium animate-fade-in">
             Legacy of Excellence
           </p>
-          <h1 className="text-5xl md:text-8xl font-serif text-white mb-10 tracking-tight">
-            DEFINING MOMENTS
+          {/* Changed text-5xl to text-4xl for mobile safety */}
+          <h1 className="text-4xl md:text-8xl font-serif text-white mb-10 tracking-tight leading-tight">
+            DEFINING <br className="md:hidden" /> MOMENTS
           </h1>
           <div className="flex justify-center gap-6">
-            <Link href="#collection" className="bg-white text-black px-10 py-4 text-[10px] font-bold uppercase tracking-widest hover:bg-gray-200 transition duration-300">
+            <Link href="#collection" className="bg-white text-black px-8 py-3 md:px-10 md:py-4 text-[10px] font-bold uppercase tracking-widest hover:bg-gray-200 transition duration-300">
               Discover More
             </Link>
           </div>

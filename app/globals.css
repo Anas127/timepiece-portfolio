@@ -3,27 +3,32 @@
 @theme {
   --font-serif: var(--font-serif);
   --font-sans: var(--font-sans);
-  
-  /* CHANGED: From #050505 (Pitch Black) to #121212 (Soft Charcoal) */
   --color-luxury-black: #121212; 
-  
-  /* CHANGED: From #1a1a1a to #1F1F1F (Lighter Gray for cards/sections) */
   --color-luxury-gray: #1F1F1F;
 }
 
 :root {
-  /* Match the theme variable */
   --background: #121212;
   --foreground: #ffffff;
 }
 
-html {
+html, body {
+  /* FIX: Prevents side-to-side wiggling on phones */
+  overflow-x: hidden; 
   scroll-behavior: smooth;
   background-color: var(--background);
 }
 
 body {
-  background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+/* FIX: Hides scrollbar in the gallery but allows scrolling */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
