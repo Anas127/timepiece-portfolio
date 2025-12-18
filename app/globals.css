@@ -3,12 +3,17 @@
 @theme {
   --font-serif: var(--font-serif);
   --font-sans: var(--font-sans);
-  --color-luxury-black: #050505;
-  --color-luxury-gray: #121212;
+  
+  /* CHANGED: From #050505 (Pitch Black) to #121212 (Soft Charcoal) */
+  --color-luxury-black: #121212; 
+  
+  /* CHANGED: From #1a1a1a to #1F1F1F (Lighter Gray for cards/sections) */
+  --color-luxury-gray: #1F1F1F;
 }
 
 :root {
-  --background: #050505;
+  /* Match the theme variable */
+  --background: #121212;
   --foreground: #ffffff;
 }
 

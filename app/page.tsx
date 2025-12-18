@@ -2,83 +2,83 @@ import Navbar from "./components/Navbar";
 import Image from "next/image";
 import Link from "next/link";
 
-// UPDATED: 6 Real Luxury Watches
+// 1. UPDATED DATA: Now using 'images' array to match the Product Page structure
 const watches = [
   {
     id: 1,
     name: "Royal Oak Perpetual",
     brand: "Audemars Piguet",
     price: 145000,
-    image: "./images/watch1.png",
-    // No sketchfabId here, so no 3D view will show
+    // Using duplicates for now to simulate a gallery. 
+    // Replace these with real alternative angles when you have them.
+    images: ["./images/royal-oak/main_royal_oak.jpg", "./images/royal-oak/oak-img2.jpg", "./images/royal-oak/oak-img3.jpg", "./images/royal-oak/oak-img4.jpg"], 
+    description: "An icon of steel and mechanics. The Royal Oak Perpetual Calendar features the legendary Grande Tapisserie dial and a moon phase so precise it requires correction only once every 125 years."
   },
   {
     id: 2,
     name: "Nautilus Travel Time",
     brand: "Patek Philippe",
     price: 115000,
-    image: "./images/watch2.png",
+    images: ["./images/nautilus/main_nautilus.jpg", "./images/nautilus/nautilus-img2.jpg", "./images/nautilus/nautilus-img3.jpg"],
+    description: "The perfect companion for the global elite. With its dual time zone mechanism and distinct porthole construction, the Nautilus represents the pinnacle of sporty elegance."
   },
   {
     id: 3,
     name: "Daytona Platinum",
     brand: "Rolex",
     price: 95000,
-    image: "./images/watch3.png",
-    sketchfabId: "d539268d839641759367316712396301", // <--- THE MAGIC KEY
+    images: ["./images/daytona/main_daytona.jpg", "./images/daytona/daytona-img2.jpg", "./images/daytona/daytona-img3.jpg", "./images/daytona/daytona-img4.jpg"],
+    description: "The ultimate trophy. Forged in 950 platinum with an ice-blue dial, this Cosmograph Daytona is designed for those with a passion for driving and speed."
   },
   {
     id: 4,
     name: "Overseas Tourbillon",
     brand: "Vacheron Constantin",
     price: 129000,
-    image: "/watch4.png",
+    images: ["./images/overseas/main_overseas.jpg", "./images/overseas/overseas-img2.jpg"], 
+    description: "A tribute to the spirit of travel. This masterpiece houses an ultra-thin tourbillon movement, visible through the open-worked dial, encased in grade 5 titanium."
   },
   {
     id: 5,
     name: "Zeitwerk Date",
     brand: "A. Lange & Söhne",
     price: 98000,
-    image: "/watch5.png",
+    images: ["/watch5.png", "/watch5.png"],
+    description: "German engineering at its finest. The Zeitwerk is the first mechanical wristwatch to display time digitally with jumping numerals, balancing clarity with extreme complexity."
   },
   {
     id: 6,
     name: "Day-Date 40",
     brand: "Rolex",
     price: 45000,
-    image: "/watch6.png",
+    images: ["/watch6.png", "/watch6.png"],
+    description: "The 'Presidents' watch.' Available only in precious metals, the Day-Date was the first watch to spell out the day of the week in full, becoming a universal symbol of prestige."
   }
 ];
 
 export default function Home() {
-  // We use the first 6 watches for the collection grid
   const collection = watches; 
 
   return (
     <div className="bg-luxury-black text-white min-h-screen">
       <Navbar />
 
-      {/* 1. HERO SECTION (Video Background) */}
+      {/* 1. HERO SECTION */}
       <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-        
-        {/* Video Layer */}
         <div className="absolute inset-0 z-0 bg-black">
           <video 
             autoPlay 
             loop 
             muted 
             playsInline 
-            // 'pointer-events-none' prevents any clicking or controls from showing
             className="w-full h-full object-cover opacity-50 grayscale pointer-events-none" 
           >
+            {/* Make sure this path is correct in your public folder */}
             <source src="./videos/hero_video.mp4" type="video/mp4" />
           </video>
-          
-          {/* Gradient for text readability */}
           <div className="absolute inset-0 bg-gradient-to-t from-luxury-black via-transparent to-black/30" />
         </div>
 
-        {/* Text Layer */}
         <div className="relative z-10 text-center max-w-5xl px-6 mt-20">
           <p className="text-xs md:text-sm tracking-[0.4em] uppercase text-gray-300 mb-6 font-medium animate-fade-in">
             Legacy of Excellence
@@ -102,15 +102,15 @@ export default function Home() {
             <div 
               key={watch.id} 
               className={`flex flex-col md:flex-row items-center gap-20 ${
-                index % 2 === 1 ? "md:flex-row-reverse" : "" // Alternates Left/Right layout
+                index % 2 === 1 ? "md:flex-row-reverse" : "" 
               }`}
             >
               {/* Image Side */}
               <div className="w-full md:w-1/2 relative h-[60vh] md:h-[70vh] group overflow-hidden bg-[#0a0a0a]">
                 <Link href={`/product/${watch.id}`}>
-                  {/* Using standard img tag fallback if next/image gives trouble with local files, but Image is better */}
                   <Image
-                    src={watch.image}
+                    // CHANGED: Uses the first image from the array
+                    src={watch.images[0]}
                     alt={watch.name}
                     fill
                     className="object-cover transition duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100 grayscale hover:grayscale-0"
@@ -126,15 +126,18 @@ export default function Home() {
                 <h2 className="text-4xl md:text-6xl font-serif text-white leading-tight">
                   {watch.name}
                 </h2>
-                <div className="w-16 h-[1px] bg-gray-800 mx-auto md:mx-0" />
+                <div className="w-16 h-[1px] bg-gray-700 mx-auto md:mx-0" />
+                
+                {/* Description */}
                 <p className="text-gray-400 leading-relaxed max-w-md mx-auto md:mx-0 font-light text-sm">
-                  An exemplary demonstration of technical mastery and aesthetic fluidity. 
-                  Designed for those who command time, rather than chase it.
+                  {watch.description}
                 </p>
+
                 <div className="pt-8">
+                  {/* Solid White Button */}
                   <Link 
                     href={`/product/${watch.id}`} 
-                    className="text-[10px] font-bold uppercase tracking-widest border-b border-gray-700 pb-2 hover:border-white hover:text-white text-gray-500 transition"
+                    className="inline-block bg-white text-black px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-gray-300 transition-all duration-300 transform hover:-translate-y-1"
                   >
                     Discover More
                   </Link>
@@ -146,7 +149,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. FOOTER */}
       <footer className="bg-black py-24 border-t border-white/5">
         <div className="text-center">
              <h4 className="text-3xl font-serif mb-6 text-white tracking-widest">TIMEPIECE.</h4>
